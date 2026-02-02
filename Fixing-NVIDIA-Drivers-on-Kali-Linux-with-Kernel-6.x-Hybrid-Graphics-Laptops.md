@@ -97,11 +97,14 @@ Apply the driver blacklist to the boot image:
 sudo update-initramfs -u
 ```
 
-### Step 7: Install and Enable Display Manager
+### Step 7: Install and Configure Display Manager
 
 ```bash
 # Install LightDM display manager
 sudo apt install lightdm
+
+# Reconfigure display manager packages
+sudo dpkg-reconfigure lightdm
 
 # Enable it to start at boot
 sudo systemctl enable lightdm
@@ -170,6 +173,9 @@ If you need to manually run `sudo startx`:
 ```bash
 # Check if display manager is enabled
 systemctl is-enabled lightdm
+
+# Reconfigure if needed
+sudo dpkg-reconfigure lightdm
 
 # Re-enable if needed
 sudo systemctl enable lightdm
@@ -247,6 +253,7 @@ sudo update-initramfs -u
 
 # Setup display manager
 sudo apt install lightdm
+sudo dpkg-reconfigure lightdm
 sudo systemctl enable lightdm
 sudo systemctl set-default graphical.target
 
